@@ -24,6 +24,8 @@ do repositório de pedidos.
 No teste de integração, crie instâncias das entidades, salve-as no 
 banco de dados, recupere-as e verifique se os dados estão corretos.
 
-![](C:\Users\logonrmlocal\IdeaProjects\simuladoCP2_ENTERPRISE\src\main\resources\files\relationalDB_simuladoCP2.png)
+![](src\main\resources\files\relationalDB_simuladoCP2.png)
+
+
 
 

@@ -1,7 +1,6 @@
 package org.example.models;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -13,11 +12,16 @@ import org.example.models.base.BaseEntity;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-@Table(name="TB_SHP_CART_ITEM")
+@Table(name = "TB_SHOPPING_CART_ITEM")
 public class ShoppingCartItem extends BaseEntity {
+    @ManyToOne
+    @JoinColumn(name = "customer_id")
+    private Customer customer;
 
-    private String customer_id;
-    private Integer product_id;
+    @ManyToOne
+    @JoinColumn(name = "product_id")
+    private Product product;
+
     private Integer quantity;
     private Float price;
 }

@@ -6,16 +6,16 @@ public enum OrderStatusCode {
     DELIVERED("Delivered", "O pedido foi entregue com sucesso."),
     CANCELED("Canceled", "O pedido foi cancelado.");
 
-    private final String code;
+    private final String status_code;
     private final String description;
 
-    OrderStatusCode(String code, String description) {
-        this.code = code;
+    OrderStatusCode(String status_code, String description) {
+        this.status_code = status_code;
         this.description = description;
     }
 
-    public String getCode() {
-        return code;
+    public String getStatus_code() {
+        return status_code;
     }
 
     public String getDescription() {
@@ -23,6 +23,6 @@ public enum OrderStatusCode {
     }
     @Override
     public String toString() {
-        return code;
+        return status_code;
     }
 }

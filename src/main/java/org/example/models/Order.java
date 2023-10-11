@@ -1,22 +1,31 @@
 package org.example.models;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import org.example.models.base.BaseEntity;
+import org.example.enums.OrderStatusCode;
+
+import java.util.List;
 
 @Getter
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-@Table(name="TB_ORDER")
+@Table(name = "TB_ORDER")
 public class Order extends BaseEntity {
+    @ManyToOne
+    @JoinColumn(name = "customer_id")
+    private Customer customer;
 
-    private Integer costumer_id;
-    private Integer status_code_id;
+    @Enumerated(EnumType.STRING)
+    private OrderStatusCode statusCode;
+
     private String customer_comments;
+
+    @OneToMany(mappedBy = "order", cascade = CascadeType.ALL)
+    private List<OrderItem> items;
 }
