@@ -6,14 +6,14 @@ import org.example.models.ShoppingCartItem;
 import java.util.List;
 import java.util.Optional;
 
-public class ShoppingCartItemRpository {
+public class ShoppingCartItemRepository implements Repository<T>{
     EntityManager entityManager;
 
-    public ShoppingCartItemRpository(EntityManager entityManager) {
+    public ShoppingCartItemRepository(EntityManager entityManager) {
         this.entityManager = entityManager;
     }
 
-    public void insertCartItem(ShoppingCartItem cartItem) {
+    public void create(ShoppingCartItem cartItem) {
         try {
             entityManager.getTransaction().begin();
             entityManager.persist(cartItem);
@@ -25,20 +25,16 @@ public class ShoppingCartItemRpository {
         }
     }
 
-    public Optional<ShoppingCartItem> getCartItemById(Long id) {
+    public Optional<ShoppingCartItem> findById(Long id) {
         return Optional.ofNullable(entityManager.find(ShoppingCartItem.class, id));
     }
 
-    public List<ShoppingCartItem> getAllCartItems() {
+    public List<ShoppingCartItem> getAll() {
         var jpql = "SELECT i FROM ShoppingCartItem i";
         var query = entityManager.createQuery(jpql, ShoppingCartItem.class);
         return query.getResultList();
     }
 
-    public void updateCartItem() {
-
-    }
-    public void deleteCartItem() {
-
-    }
+    public void update(ShoppingCartItem cartItem) {}
+    public void deleteById(Long id) {}
 }

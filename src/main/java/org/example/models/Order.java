@@ -17,7 +17,8 @@ import java.util.List;
 @Entity
 @Table(name = "TB_ORDER")
 public class Order extends BaseEntity {
-    @ManyToOne
+
+    @ManyToOne // ManyToMany ????
     @JoinColumn(name = "customer_id")
     private Customer customer;
 
