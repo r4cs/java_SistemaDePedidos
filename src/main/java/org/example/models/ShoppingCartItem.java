@@ -7,6 +7,8 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import org.example.models.base.BaseEntity;
 
+import java.util.List;
+
 @Getter
 @Setter
 @AllArgsConstructor
@@ -18,10 +20,14 @@ public class ShoppingCartItem extends BaseEntity {
     @JoinColumn(name = "customer_id")
     private Customer customer;
 
-    @ManyToOne
-    @JoinColumn(name = "product_id")
+    @ManyToOne(targetEntity = Product.class,
+                fetch = FetchType.EAGER)
+    @JoinTable(name = "product_id",
+                joinColumns = @JoinColumn(name = "shopping_cart_item_id"),
+                inverseJoinColumns = @JoinColumn(name="product_id"))
     private Product product;
 
+
     private Integer quantity;
-    private Float price;
+    private Double price;
 }

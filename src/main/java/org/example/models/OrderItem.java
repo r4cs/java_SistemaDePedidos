@@ -19,6 +19,10 @@ public class OrderItem extends BaseEntity {
     private Order order;
 
     @ManyToOne
+    @JoinColumn(name = "shopping_cart_item_id")
+    private ShoppingCartItem cartItem;
+
+    @ManyToOne
     @JoinColumn(name = "product_id")
     private Product product;
 
