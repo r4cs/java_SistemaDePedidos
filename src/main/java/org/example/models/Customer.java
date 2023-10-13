@@ -16,6 +16,7 @@ import java.util.List;
 @Entity
 @Table(name = "TB_CUSTOMER")
 public class Customer extends BaseEntity {
+
     @OneToMany(mappedBy = "customer", cascade = CascadeType.ALL)
     private List<Order> orders;
 }

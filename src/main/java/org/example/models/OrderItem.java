@@ -14,6 +14,7 @@ import org.example.models.base.BaseEntity;
 @Entity
 @Table(name = "TB_ORDER_ITEM")
 public class OrderItem extends BaseEntity {
+
     @ManyToOne
     @JoinColumn(name = "order_id")
     private Order order;

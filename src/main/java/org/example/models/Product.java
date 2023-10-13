@@ -8,7 +8,6 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import org.example.models.base.BaseEntity;
-
 import java.util.List;
 
 @Getter
