@@ -18,15 +18,15 @@ import java.util.List;
 @Table(name = "TB_ORDER")
 public class Order extends BaseEntity {
 
-    @ManyToOne // ManyToMany ????
+    @ManyToOne
     @JoinColumn(name = "customer_id")
-    private Customer customer;
+    private Customer customer_id;
 
     @Enumerated(EnumType.STRING)
-    private OrderStatusCode statusCode;
+    private OrderStatusCode status_code_id;
 
     private String customer_comments;
 
-    @OneToMany(mappedBy = "order", cascade = CascadeType.ALL)
-    private List<OrderItem> items;
+//    @OneToMany(mappedBy = "order", cascade = CascadeType.ALL)
+//    private List<OrderItem> order_id;
 }

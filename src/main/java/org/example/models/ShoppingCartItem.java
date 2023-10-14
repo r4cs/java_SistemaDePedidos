@@ -16,17 +16,14 @@ import java.util.List;
 @Entity
 @Table(name = "TB_SHOPPING_CART_ITEM")
 public class ShoppingCartItem extends BaseEntity {
-    @ManyToOne
+
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "customer_id")
-    private Customer customer;
+    private Customer customer_id;
 
-    @ManyToOne(targetEntity = Product.class,
-                fetch = FetchType.EAGER)
-    @JoinTable(name = "product_id",
-                joinColumns = @JoinColumn(name = "shopping_cart_item_id"),
-                inverseJoinColumns = @JoinColumn(name="product_id"))
-    private Product product;
-
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name="product_id")
+    private Product product_id;
 
     private Integer quantity;
     private Double price;

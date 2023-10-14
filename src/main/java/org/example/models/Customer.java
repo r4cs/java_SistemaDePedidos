@@ -15,8 +15,8 @@ import java.util.List;
 @NoArgsConstructor
 @Entity
 @Table(name = "TB_CUSTOMER")
-public class Customer extends BaseEntity {
-
-    @OneToMany(mappedBy = "customer", cascade = CascadeType.ALL)
-    private List<Order> orders;
+public class Customer {
+    @Id
+    @Column(length = 50)
+    private String email;
 }

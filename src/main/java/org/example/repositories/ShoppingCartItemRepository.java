@@ -6,10 +6,11 @@ import org.example.models.ShoppingCartItem;
 import java.util.List;
 import java.util.Optional;
 
-public class ShoppingCartItemRepository implements Repository<T>{
+public class ShoppingCartItemRepository extends JpaRepository {
     EntityManager entityManager;
 
     public ShoppingCartItemRepository(EntityManager entityManager) {
+        super(entityManager, ShoppingCartItem.class);
         this.entityManager = entityManager;
     }
 
