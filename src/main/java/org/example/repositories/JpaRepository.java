@@ -3,6 +3,7 @@ package org.example.repositories;
 import jakarta.persistence.EntityManager;
 
 import java.util.List;
+import java.util.Optional;
 
 public class JpaRepository<T> implements Repository<T> {
     protected EntityManager entityManager;
